@@ -1,0 +1,54 @@
+/* =========================
+   STATUS (BADGE)
+   Indicador no topo do card (ex: publicado / rascunho)
+========================= */
+.status {
+    position: absolute; /* posiciona o badge sobre o card */
+
+    top: 0.6rem;
+    right: 0.6rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.3rem; /* espaço entre ícone e texto */
+
+    padding: 0.2rem 0.5rem;
+
+    border-radius: 1rem; /* formato “pílula” */
+
+    font-size: 0.7rem;
+    font-weight: 500;
+
+    backdrop-filter: blur(4px); /* efeito de vidro (glassmorphism) */
+
+    z-index: 2; /* garante que fique acima da imagem */
+}
+
+
+/* =========================
+   ÍCONE DO STATUS
+========================= */
+.status img {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+
+/* =========================
+   STATUS: PUBLICADO
+   (verde = ativo / disponível)
+========================= */
+.status.publicado {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+
+/* =========================
+   STATUS: RASCUNHO
+   (laranja = não publicado ainda)
+========================= */
+.status.rascunho {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}

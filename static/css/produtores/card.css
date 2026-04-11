@@ -1,0 +1,141 @@
+/* =========================
+   CARD PRINCIPAL
+   Estrutura do card do produtor
+========================= */
+.produtor-card {
+    border: 0.1rem solid #A19D9D; /* borda do card */
+
+    display: flex;
+    flex-direction: column; /* organiza conteúdo em coluna (imagem -> info -> botões) */
+
+    background: #fff;
+
+    border-radius: clamp(0.6rem, 1vw, 1rem); /* bordas responsivas */
+
+    overflow: hidden; /* impede conteúdo de sair do card */
+
+    box-shadow: 0 0.3rem 0.8rem rgba(0,0,0,0.1); /* sombra leve */
+
+    transition: transform 0.2s ease; /* animação suave no hover */
+}
+
+/* efeito ao passar o mouse no card */
+.produtor-card:hover {
+    transform: translateY(-0.3rem); /* levanta o card */
+}
+
+
+/* =========================
+   IMAGEM DO CARD
+========================= */
+.produtor-card img {
+    width: 100%; /* ocupa toda largura do card */
+
+    height: clamp(9rem, 15vw, 11rem); /* altura responsiva */
+
+    object-fit: cover; /* corta a imagem sem distorcer */
+}
+
+
+/* =========================
+   CONTEÚDO DO CARD
+   (título, descrição, preço etc.)
+========================= */
+.produtor-info {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1; /* ocupa espaço restante do card */
+
+    padding: clamp(0.8rem, 1.5vw, 1.2rem); /* espaçamento interno responsivo */
+}
+
+
+/* =========================
+   TÍTULO DO PRODUTOR
+========================= */
+.produtor-info h2 {
+    margin-bottom: 0.4rem;
+
+    font-size: clamp(1rem, 1.2vw, 1.4rem); /* responsivo */
+}
+
+
+/* =========================
+   CATEGORIA (tag: fruta, legume, hortaliça)
+========================= */
+.categoria {
+    display: inline-flex;
+    align-self: flex-start;
+
+    font-size: clamp(0.75rem, 1vw, 0.9rem);
+
+    padding: 0.2rem 0.5rem;
+
+    border-radius: 0.5rem;
+
+    margin-bottom: 0.5rem;
+}
+
+
+/* 🍎 FRUTA */
+.categoria.fruta {
+    background-color: #d19d9d;
+    color: #e61a1a;
+}
+
+
+/* 🥕 LEGUME */
+.categoria.legume {
+    background-color: #f1c277;
+    color: #ef6c00;
+}
+
+
+/* 🥬 HORTALIÇA */
+.categoria.hortalica {
+    background-color: #82df89;
+    color: #2e7d32;
+}
+
+
+/* =========================
+   DESCRIÇÃO DO PRODUTOR
+========================= */
+.descricao {
+    margin-bottom: 0.5rem;
+
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+
+    color: #555;
+
+    /* evita quebra estranha de texto */
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+
+/* =========================
+   PREÇO DO PRODUTO
+========================= */
+.preco {
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+
+    font-weight: 600;
+
+    color: #2e7d32;
+
+    margin-bottom: 0.3rem;
+}
+
+
+/* =========================
+   QUANTIDADE
+========================= */
+.quantidade {
+    font-size: clamp(0.8rem, 1vw, 1rem);
+
+    color: #777;
+
+    margin-bottom: 0.8rem;
+}
