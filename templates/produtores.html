@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtores</title>
+    <title>AgroConnect - Produtores</title>
 
-    <!-- FONTES -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/produtores/meus_produtos/botoes.css">
     <link rel="stylesheet" href="../static/css/produtores/meus_produtos/grid.css">
@@ -18,10 +17,13 @@
     <link rel="stylesheet" href="../static/css/produtores/meus_produtos/botoes_card.css">
     <link rel="stylesheet" href="../static/css/produtores/meus_produtos/status.css">
     <link rel="stylesheet" href="../static/css/produtores/formulario/modal.css">
-
     <link rel="stylesheet" href="../static/css/produtores/formulario/buttons_modal.css">
     <link rel="stylesheet" href="../static/css/produtores/formulario/form.css">
     <link rel="stylesheet" href="../static/css/produtores/formulario/upload_descricao.css">
+
+    <link rel="stylesheet" href="../static/css/produtores/planilha.css">
+
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
 </head>
 
 <body>
@@ -38,50 +40,40 @@
 
 <main class="main">
 
-    <!-- TÍTULO -->
     <section class="topo">
         <h1>Meus Produtos</h1>
     </section>
 
-    <!-- BUSCA -->
     <section class="busca">
         <div class="input-wrapper">
-            <img src="../static/assets/lupa.png" class="icone-busca" alt="">
+            <img src="../static/assets/lupa.png" class="icone-busca" alt="Lupa">
             <input id="searchInput" type="text" placeholder="Pesquisar Produtos...">
         </div>
     </section>
 
-    <!-- AÇÕES -->
     <section class="acoes">
         <button class="acao-btn">
-            <img src="../static/assets/download.png" alt="">
+            <img src="../static/assets/download.png" alt="Download">
             <span>Baixar Template Excel</span>
         </button>
 
-        <button class="acao-btn">
-            <img src="../static/assets/upload.png" alt="">
+        <button class="acao-btn" onclick="abrirModalPlanilha()">
+            <img src="../static/assets/upload.png" alt="Upload">
             <span>Enviar Planilha</span>
         </button>
 
         <button class="acao-btn" onclick="abrirModal()">
-            <img src="../static/assets/mais.png">
+            <img src="../static/assets/mais.png" alt="Mais">
             <span>Adicionar Produto</span>
         </button>
     </section>
 
-    <!-- CONTAINER -->
     <section id="produtosContainer" class="produtores-container"></section>
 
 </main>
 
-<!-- =========================
-     MODAL
-========================= -->
 <div id="modalProduto" class="modal">
-
     <div class="modal-content">
-
-        <!-- FECHAR -->
         <button class="btn-fechar" onclick="fecharModal()"></button>
 
         <div class="titulo-modal">
@@ -89,14 +81,11 @@
             <h2>Adicionar Produto</h2>
         </div>
 
-
-        <!-- NOME -->
         <div class="campo">
             <label for="nomeProduto">Nome do produto</label>
             <input type="text" id="nomeProduto" placeholder="Ex: Laranja">
         </div>
 
-        <!-- CATEGORIA -->
         <div class="campo">
             <label for="categoriaProduto">Categoria</label>
             <select id="categoriaProduto">
@@ -106,9 +95,7 @@
             </select>
         </div>
 
-        <!-- PREÇO + UNIDADE -->
         <div class="linha-form">
-
             <div class="campo">
                 <label for="precoProduto">Preço (R$)</label>
                 <input type="number" id="precoProduto" placeholder="Ex: 3,00" step="0.01" min="0">
@@ -124,60 +111,97 @@
             </div>
         </div>
 
-        <!-- QUANTIDADE -->
         <div class="campo">
             <label for="quantidadeProduto">Quantidade Disponível</label>
-            <input id="quantidadeProduto" placeholder="Ex: 10 caixas/ 100 gramas" min="1">
+            <input id="quantidadeProduto" placeholder="Ex: 10 caixas/ 100 gramas">
         </div>
 
-
-        <!-- DESCRIÇÃO + FOTO -->
         <div class="linha-form big">
-
-            <!-- DESCRIÇÃO -->
             <div class="campo caixa-grande">
                 <label for="descricaoProduto">Descrição</label>
                 <textarea id="descricaoProduto" placeholder="Ex: Fruta doce e fresca"></textarea>
             </div>
 
-            <!-- UPLOAD FOTO -->
             <div class="campo caixa-grande">
-
                 <label>Foto do produto</label>
-
-                <!-- AREA DE UPLOAD (vai virar drag & drop depois) -->
                 <div class="upload-box" id="uploadBox">
-
                     <input type="file" id="fotoProduto" accept="image/*" hidden>
-
                 </div>
-
             </div>
-
         </div>
 
-        <!-- BOTÕES -->
         <div class="botoes-modal">
-
             <button class="btn-rascunho" onclick="salvarRascunho()">
-                <img src="../static/assets/rascunho.png">
+                <img src="../static/assets/rascunho.png" alt="">
                 Salvar Rascunho
             </button>
-
             <button class="btn-publicar" onclick="publicarProduto()">
-                <img src="../static/assets/publicado.png">
+                <img src="../static/assets/publicado.png" alt="">
                 Publicar Produto
             </button>
-
         </div>
-
     </div>
-
 </div>
 
-<!-- JS -->
+<div id="modalPlanilha" class="modal">
+    <div class="modal-content modal-planilha-content">
+        <button class="btn-fechar" onclick="fecharModalPlanilha()"></button>
+        
+        <div class="titulo-modal">
+            <h2>Enviar Planilha de Produtos</h2>
+        </div>
+
+        <div id="estadoUpload" class="estado-planilha active">
+            <div class="upload-zone" id="dropZonePlanilha" onclick="document.getElementById('inputPlanilha').click()">
+                <img src="../static/assets/upload.png" alt="Upload" style="width: 40px; margin-bottom: 10px;">
+                <p>Arraste um arquivo Excel ou clique para selecionar</p>
+                <small>Formatos aceitos: .xlsx, .xls</small>
+                <input type="file" id="inputPlanilha" accept=".xlsx, .xls" hidden>
+            </div>
+            <div class="botoes-modal">
+                <button class="btn-rascunho" onclick="fecharModalPlanilha()">Cancelar</button>
+            </div>
+        </div>
+
+        <div id="estadoResultado" class="estado-planilha">
+    <div class="resultado-header">
+        <p>Arquivo: <strong id="nomeArquivo">---</strong></p>
+        <button class="btn-trocar-arquivo" onclick="resetarModalPlanilha()">Trocar arquivo</button>
+    </div>
+    
+    <div class="badges-resultado">
+        <span class="badge badge-sucesso"><span id="qtdValidos">0</span> válidos</span>
+        <span class="badge badge-erro"><span id="qtdErros">0</span> com erro</span>
+    </div>
+
+    <div class="lista-erros-container">
+        
+        <div id="secaoErros">
+            <h3 style="color: #FF1744; margin-bottom: 10px;">Produtos com Erro</h3>
+            <div id="listaErros"></div>
+        </div>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+        <div id="secaoValidos">
+            <h3 style="color: #00C853; margin-bottom: 10px;">Produtos Válidos</h3>
+            <div id="listaValidos"></div>
+        </div>
+    </div>
+
+    <div class="botoes-modal">
+        <button class="btn-rascunho" onclick="fecharModalPlanilha()">Cancelar</button>
+        <button class="btn-publicar" id="btnConfirmarPlanilha" disabled>
+            Adicionar Produtos
+        </button>
+    </div>
+</div>
+    </div>
+</div>
+
 <script src="../static/js/produtores/rendenizar.js"></script>
 <script src="../static/js/produtores/formulario.js"></script>
+<script src="../static/js/produtores/planilha.js"></script>
 
 </body>
 </html>
