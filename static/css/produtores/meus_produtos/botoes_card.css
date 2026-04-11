@@ -48,7 +48,7 @@
    BOTÃO EXCLUIR (QUADRADO)
 ========================= */
 .excluir-card-btn {
-    background: url("../../assets/excluir.png") center / contain no-repeat;
+    background: url("../../../assets/excluir.png") center / contain no-repeat;
 
     height: 100%; /* segue altura do container */
 
