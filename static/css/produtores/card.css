@@ -3,6 +3,8 @@
    Estrutura do card do produtor
 ========================= */
 .produtor-card {
+    position: relative; /* referência do absolute */
+
     border: 0.1rem solid #A19D9D; /* borda do card */
 
     display: flex;

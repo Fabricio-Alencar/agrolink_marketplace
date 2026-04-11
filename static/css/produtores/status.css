@@ -14,7 +14,7 @@
 
     padding: 0.2rem 0.5rem;
 
-    border-radius: 1rem; /* formato “pílula” */
+    border-radius: 0.7rem; /* formato “pílula” */
 
     font-size: 0.7rem;
     font-weight: 500;
@@ -29,26 +29,28 @@
    ÍCONE DO STATUS
 ========================= */
 .status img {
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 1.3rem;
+    height: 1.3rem;
 }
 
 
 /* =========================
    STATUS: PUBLICADO
-   (verde = ativo / disponível)
 ========================= */
 .status.publicado {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background-color: #000000;
+    color: #ffffff;
+    border: 0.1rem solid #ffffff; /* borda do card */
+
 }
 
 
 /* =========================
    STATUS: RASCUNHO
-   (laranja = não publicado ainda)
 ========================= */
 .status.rascunho {
-    background-color: #fff3e0;
-    color: #ef6c00;
+    background-color: #ffffff;
+    color: #000000;
+    border: 0.1rem solid #000000; /* borda do card */
+
 }
