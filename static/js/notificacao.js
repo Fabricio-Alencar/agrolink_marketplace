@@ -21,6 +21,10 @@ function exibirNotificacao(tipo, mensagem) {
 
     // Definição de cores e ícones (Imagem à ESQUERDA)
     switch (tipo) {
+        case 'planilha':
+            caminhoIcone = "../static/assets/excel.png";
+            classeEstilo = "notificacao-planilha";
+            break;
         case 'cadastro':
             caminhoIcone = "../static/assets/produto_cadastrado.png";
             classeEstilo = "notificacao-sucesso";

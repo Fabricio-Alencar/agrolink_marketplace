@@ -32,6 +32,7 @@
 .notificacao-sucesso { background-color: #00C853; } /* Verde */
 .notificacao-edicao { background-color: #2979FF; }  /* Azul */
 .notificacao-exclusao { background-color: #FF1744; } /* Vermelho */
+.notificacao-planilha { background-color: #115708; } /* Vermelho */
 
 .notificacao-icone {
     width: 40px;
