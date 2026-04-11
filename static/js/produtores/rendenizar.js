@@ -169,7 +169,7 @@ function renderProdutos(lista) {
                         <span>Editar</span>
                     </button>
 
-                    <button class="excluir-card-btn"></button>
+                    <button class="excluir-card-btn" onclick="prepararExclusao('${produto.nome}')"></button>
                 </div>
 
             </div>
