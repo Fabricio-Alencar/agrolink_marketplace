@@ -164,7 +164,7 @@ function renderProdutos(lista) {
                 <p class="quantidade">${produto.quantidade}</p>
 
                 <div class="botoes-card">
-                    <button class="editar-card-btn">
+                    <button class="editar-card-btn" onclick="prepararEdicao('${produto.nome}')">
                         <img src="../static/assets/editar.png" alt="">
                         <span>Editar</span>
                     </button>

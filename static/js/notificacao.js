@@ -30,7 +30,7 @@ function exibirNotificacao(tipo, mensagem) {
             classeEstilo = "notificacao-sucesso";
             break;
         case 'edicao':
-            caminhoIcone = "../static/assets/editar.png";
+            caminhoIcone = "../static/assets/produto_editado.png";
             classeEstilo = "notificacao-edicao";
             break;
         case 'exclusao':
