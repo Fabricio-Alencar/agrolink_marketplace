@@ -3,70 +3,115 @@
 <head>
     <meta charset="UTF-8">
     
+    <!-- Responsividade para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Marketplace de Produtores</title>
     
-    <!-- FONTES -->
+    <!-- IMPORTAÇÃO DE FONTES DO GOOGLE -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../static/css/estabelecimentos/style.css">
+    <!-- ARQUIVO CSS PRINCIPAL -->
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/layout_inicial_e_variaveis_globais.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/card_produtos.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/drawer.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/header.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/modal_pedidos.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/responsividade.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/sarch_bar.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/side_bar.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/marketplace_estabelecimentos/titulo.css">
 </head>
+
 <body>
 
+    <!-- HEADER (TOPO DO SITE) -->
     <header>
+
+        <!-- ÍCONE DE MENU (HAMBURGUER) -->
         <div class="menu-icon">
             <span></span>
             <span></span>
             <span></span>
         </div>
         
+        <!-- LOGO DO SISTEMA -->
         <div class="logo-container">
             <span class="logo-emoji">🌱</span>
             <span class="logo-text">AgroConnect</span>
         </div>
+
     </header>
 
+    <!-- OVERLAY ESCURO QUANDO O MENU LATERAL ABRE -->
     <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- MENU LATERAL (DRAWER) -->
     <nav class="side-drawer" id="sideDrawer">
+
+        <!-- CABEÇALHO DO MENU -->
         <div class="drawer-header">
             <span class="drawer-title">Menu</span>
             <button class="close-drawer" id="closeDrawerBtn">&times;</button>
         </div>
+
+        <!-- LINKS DO MENU -->
         <ul class="drawer-links">
             <li><a href="#" onclick="window.location.href='/perfil'; return false;">Perfil</a></li>
             <li><a href="#" onclick="window.location.href='/pedidos'; return false;">Negociações / Pedidos</a></li>
         </ul>
+
     </nav>
 
+    <!-- SEÇÃO SUPERIOR (TÍTULO + BUSCA) -->
     <div class="top-section">
+
+        <!-- TÍTULO -->
         <h1>Marketplace</h1>
 
+        <!-- CAMPO DE BUSCA -->
         <div class="search-container">
-            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+
+            <!-- ÍCONE DE LUPA -->
+            <svg viewBox="0 0 24 24">
+               <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 
+                16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 
+                5.91 16 9.5 16c1.61 0 3.09-.59 
+                4.23-1.57l.27.28v.79l5 4.99L20.49 
+                19l-4.99-5zm-6 0C7.01 14 5 
+                11.99 5 9.5S7.01 5 9.5 5 
+                14 7.01 14 9.5 11.99 14 
+                9.5 14z"/>
+            </svg> 
             
+            <!-- INPUT DE BUSCA -->
             <input type="text" id="searchInput" placeholder="Buscar produtos ou produtores...">
+
         </div>
+
     </div>
 
+    <!-- CONTAINER PRINCIPAL -->
     <div class="main-container">
         
+        <!-- SIDEBAR DE FILTROS -->
         <aside class="sidebar">
 
             <div class="filter-card">
 
+                <!-- TÍTULO DOS FILTROS -->
                 <div class="filter-header">
-                    <svg viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+                    </svg>
                     Filtros
                 </div>
 
+                <!-- FILTRO POR CATEGORIA -->
                 <div class="filter-group">
-                    <label>
-                        <svg viewBox="0 0 24 24"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
-                        Categoria
-                    </label>
+                    <label>Categoria</label>
 
                     <select id="filterCategory">
                         <option value="Todos">Todos</option>
@@ -77,11 +122,9 @@
                     </select>
                 </div>
 
+                <!-- FILTRO POR ESTADO -->
                 <div class="filter-group">
-                    <label>
-                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        Estado
-                    </label>
+                    <label>Estado</label>
 
                     <select id="filterState">
                         <option value="Todos">Todos</option>
@@ -91,11 +134,9 @@
                     </select>
                 </div>
 
+                <!-- FILTRO POR CIDADE -->
                 <div class="filter-group">
-                    <label>
-                        <svg viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/></svg>
-                        Cidade
-                    </label>
+                    <label>Cidade</label>
 
                     <select id="filterCity">
                         <option value="Todos">Todos</option>
@@ -106,45 +147,61 @@
                     </select>
                 </div>
 
+                <!-- FILTRO DE DISTÂNCIA -->
                 <div class="filter-group">
+
+                    <!-- LABEL DINÂMICO -->
                     <label>Distância máxima: <span id="distLabel">50</span> km</label>
                     
+                    <!-- SLIDER -->
                     <input type="range" id="filterDistance" class="distance-slider" min="0" max="100" value="50">
                     
+                    <!-- INDICAÇÃO VISUAL -->
                     <div class="distance-labels">
                         <span>5km</span>
                         <span>100km</span>
                     </div>
+
                 </div>
+
             </div>
             
+            <!-- CONTADOR DE RESULTADOS -->
             <p class="results-count" id="resultsCount">0 Produtos encontrados</p>
+
         </aside>
 
-        <main class="products-grid" id="productsGrid">
-        </main>
+        <!-- GRID DE PRODUTOS (SERÁ PREENCHIDO VIA JS) -->
+        <main class="products-grid" id="productsGrid"></main>
 
     </div>
 
+    <!-- MODAL DE PEDIDO -->
     <div class="modal-overlay" id="orderModal">
+
         <div class="modal-content">
 
+            <!-- BOTÃO VOLTAR -->
             <button class="btn-voltar" onclick="fecharModal()">
-                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
                 Voltar
             </button>
             
+            <!-- TÍTULO -->
             <h2 class="modal-title">Criar Pedido</h2>
 
             <div class="modal-grid">
 
+                <!-- COLUNA ESQUERDA (FORMULÁRIO) -->
                 <div>
 
+                    <!-- QUANTIDADE -->
                     <div class="form-group">
                         <label>Quantidade <span>*</span></label>
+
                         <div class="qtd-row">
                             <input type="number" id="inputQtd" class="form-control" placeholder="0" min="1">
 
+                            <!-- UNIDADE -->
                             <div class="unit-display">
                                 <span>Unidade</span>
                                 <strong id="modalUnit">Kg</strong>
@@ -152,17 +209,21 @@
                         </div>
                     </div>
 
+                    <!-- DATA -->
                     <div class="form-group">
                         <label>Data de Entrega <span>*</span></label>
                         <input type="date" id="inputData" class="form-control">
                     </div>
 
+                    <!-- DESCRIÇÃO -->
                     <div class="form-group">
                         <label>Descrição (Opcional)</label>
-                        <textarea id="inputDesc" class="form-control" placeholder="Ex: Exemplo de instruções para entrega..."></textarea>
+                        <textarea id="inputDesc" class="form-control" placeholder="Ex: instruções de entrega"></textarea>
                     </div>
+
                 </div>
 
+                <!-- COLUNA DIREITA (RESUMO) -->
                 <div>
                     <div class="resumo-box">
                         <h3>Resumo do Pedido</h3>
@@ -170,19 +231,23 @@
                         <div class="resumo-item">Produto: <strong id="resumoProduto">-</strong></div>
                         <div class="resumo-item">Produtor: <strong id="resumoProdutor">-</strong></div>
 
-                        <div class="resumo-item" style="margin-top: 30px;">Quantidade: <strong id="resumoQtd">- Kg</strong></div>
-                        <div class="resumo-item" style="margin-top: 30px;">Data de Entrega: <strong id="resumoData">-</strong></div>
+                        <div class="resumo-item">Quantidade: <strong id="resumoQtd">- Kg</strong></div>
+                        <div class="resumo-item">Data: <strong id="resumoData">-</strong></div>
                     </div>
                 </div>
+
             </div>
 
+            <!-- BOTÃO FINAL -->
             <button class="btn-publicar" onclick="emitirPedido()">
-                <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
                 Publicar Pedido
             </button>
+
         </div>
     </div>
 
+    <!-- SCRIPT JS -->
     <script src="../static/js/estabelecimentos/lógica.js"></script>
+
 </body>
 </html>

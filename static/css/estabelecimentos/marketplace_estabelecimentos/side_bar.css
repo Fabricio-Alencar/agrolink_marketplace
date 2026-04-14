@@ -1,0 +1,78 @@
+/* =========================================================
+   🎯 RESPONSABILIDADE: SIDEBAR (FILTROS)
+   ========================================================= */
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.filter-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    margin-bottom: 15px;
+}
+
+.filter-header {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.filter-header svg {
+    width: 20px;
+    margin-right: 10px;
+    fill: var(--text-dark);
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.filter-group label svg {
+    width: 16px;
+    margin-right: 6px;
+    fill: var(--text-gray);
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    outline: none;
+    background-color: #f9f9f9;
+}
+
+.distance-slider {
+    width: 100%;
+    margin: 10px 0;
+    accent-color: var(--text-dark);
+}
+
+.distance-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: bold;
+}
+
+.results-count {
+    color: var(--primary-btn);
+    font-weight: bold;
+    text-align: center;
+}
