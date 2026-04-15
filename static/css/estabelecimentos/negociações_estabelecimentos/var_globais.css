@@ -1,0 +1,16 @@
+/* ============================================================
+   RESPONSABILIDADE: TOKENS (Design System / Variáveis Globais)
+   Define cores, sombras e padrões reutilizáveis no sistema
+   ============================================================ */
+:root {
+    --primary: #5FAE3E;              /* Cor principal (ações e destaques) */
+    --primary-light: #DCE8B5;        /* Variação clara (inputs, fundos leves) */
+    --status-blue: #4A90E2;          /* Status: Aceito */
+    --status-orange: #F5A623;        /* Status: Pendente */
+    --status-red: #E74C3C;           /* Status: Recusado / ações destrutivas */
+    --bg-color: #F5F5F5;             /* Fundo geral da aplicação */
+    --text-main: #333333;            /* Texto principal */
+    --text-muted: #777777;           /* Texto secundário */
+    --border-radius: 12px;           /* Arredondamento padrão */
+    --shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra padrão */
+}

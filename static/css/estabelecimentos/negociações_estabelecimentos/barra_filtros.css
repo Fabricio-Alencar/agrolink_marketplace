@@ -1,0 +1,42 @@
+/* ============================================================
+   RESPONSABILIDADE: BARRA DE FILTROS
+   ============================================================ */
+.filters-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+/* Campo de busca */
+.search-box {
+    flex: 1;
+    min-width: 250px;
+    background: var(--primary-light);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+/* Input interno */
+.search-box input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    color: var(--text-main);
+}
+
+/* Select de status */
+.status-select {
+    padding: 10px 16px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    outline: none;
+    min-width: 150px;
+    color: var(--text-main);
+    font-weight: 600;
+}
