@@ -39,11 +39,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: var(--primary-header);
+    background: var(--primary);
     color: #ffffff;
     font-size: 18px;
     font-weight: bold;
-    height: 75px;    
+    height: 75px;
 }
 
 .close-drawer {

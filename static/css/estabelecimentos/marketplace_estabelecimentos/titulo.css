@@ -10,4 +10,5 @@
     font-size: clamp(2rem, 4vw, 3.4rem);
     font-family: 'Comfortaa', sans-serif;
     font-weight: bold;
+    text-align: center;    
 }

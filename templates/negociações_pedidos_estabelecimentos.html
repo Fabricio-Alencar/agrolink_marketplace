@@ -4,26 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroConnect - Negociações</title>
+
+        <!-- IMPORTAÇÃO DE FONTES DO GOOGLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/var_globais.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/layout_inicial.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/header.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/título.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/barra_filtros.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/toggle_lista_calendário.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/cad_pedido.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/badges_status.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/pag_detalhes.css">
-    <link rel="stylesheet" href="../static/css/estabelecimentos/negociações_estabelecimentos/responsividade.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/var_globais.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/layout_inicial.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/header.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/drawer.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/título.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/barra_filtros.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/toggle_lista_calendário.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/card_pedido.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/badges_status.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/pag_detalhes.css">
+    <link rel="stylesheet" href="../static/css/estabelecimentos/negociacoes_estabelecimentos/responsividade.css">
+    
 </head>
 <body>
 
-    <header class="main-header">
-        <button class="menu-btn">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-        </button>
-        <div class="logo">AgroConnect</div>
+    <!-- HEADER (TOPO DO SITE) -->
+    <header>
+
+        <!-- ÍCONE DE MENU (HAMBURGUER) -->
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <!-- LOGO DO SISTEMA -->
+        <div class="logo-container">
+            <span class="logo-emoji">🌱</span>
+            <span class="logo-text">AgroConnect</span>
+        </div>
+
     </header>
+
+
+    <!-- OVERLAY ESCURO QUANDO O MENU LATERAL ABRE -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- MENU LATERAL (DRAWER) -->
+    <nav class="side-drawer" id="sideDrawer">
+
+        <!-- CABEÇALHO DO MENU -->
+        <div class="drawer-header">
+            <span class="drawer-title">Menu</span>
+            <button class="close-drawer" id="closeDrawerBtn">&times;</button>
+        </div>
+
+        <!-- LINKS DO MENU -->
+        <ul class="drawer-links">
+            <li><a href="#" onclick="window.location.href='/perfil'; return false;">Perfil</a></li>
+            <li><a href="#" onclick="window.location.href='/marketplace'; return false;">Marketplace</a></li>
+        </ul>
+
+    </nav>
+
+
 
     <main id="view-lista" class="container">
         <div class="page-header">
@@ -59,6 +102,6 @@
         <div class="details-card" id="details-content"></div>
     </main>
 
-    <script src="../static/js/estabelecimentos/negociações/lógica.js"></script>
+    <script type="module" src="../static/js/estabelecimentos/negociacoes_estabelecimentos/main.js"></script>
 </body>
 </html>
