@@ -1,0 +1,193 @@
+:root {
+    --bg-color: #dce9c1;
+    --primary-green: #00873E;
+    --primary-hover: #006C32;
+    --white: #FFFFFF;
+    --text-dark: #1A1A1A;
+    --text-label: #4B5563;
+    --border-gray: #D1D5DB;
+    --toggle-active-bg: #E7F3D9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+/* 3. Centraliza horizontalmente */
+    align-items: center;
+    /* 4. Centraliza verticalmente */
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+/* Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 25%;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.page-header h1 {
+    color: var(--primary-green);
+    font-size: 2.0rem;
+    font-weight: 700;
+    font-weight: bold;
+}
+
+/* Card */
+.register-card {
+    background: var(--white);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Localize e substitua esses dois blocos no seu cadastro.css */
+
+/* 1. Centraliza o texto "Tipo de conta" */
+.account-type-section {
+    display: flex;          /* Ativa flexbox */
+    flex-direction: column; /* Empilha label e botões */
+    align-items: center;    /* Centraliza horizontalmente o conteúdo */
+    margin-bottom: 25px;
+    text-align: center;     /* Garante que o texto da label centralize */
+    font-weight: 700;
+    font-weight: bold;
+}
+
+/* 2. Ajusta o container dos botões para não ocupar 100% se não quiser, 
+      ou apenas garantir que os botões internos se alinhem */
+.toggle-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    width: 100%;            /* Faz os botões ocuparem a largura do card */
+    max-width: 400px;       /* Opcional: limita a largura se achar que ficou muito largo */
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border-gray);
+    background: var(--white);
+    color: #6B7280;
+    font-weight: 500;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+    background: var(--toggle-active-bg);
+    border-color: var(--primary-green);
+    color: var(--primary-green);
+}
+
+/* 1. Garante que o quadrado de digitação seja a base para o ícone */
+.input-wrapper {
+    position: relative !important; /* Força a referência de posição */
+    display: flex !important;
+    align-items: center !important;
+    width: 100%;
+}
+
+/* 2. Força o ícone para DENTRO do quadrado à esquerda */
+.input-wrapper svg, 
+.input-wrapper i {
+    position: absolute !important;
+    left: 16px !important;         /* Distância da borda esquerda */
+    width: 18px !important;
+    height: 18px !important;
+    color: #9CA3AF !important;     /* Cor cinza igual à imagem */
+    pointer-events: none !important; 
+    z-index: 10 !important;        /* Garante que fique acima do fundo */
+}
+
+/* 3. Ajusta o Quadrado de Digitação (Input) */
+.input-wrapper input {
+    width: 100% !important;
+    /* O SEGREDO: 48px de espaço na esquerda para o texto não bater no ícone */
+    padding: 14px 16px 14px 48px !important; 
+    border: 1.5px solid #D1D5DB !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
+    background-color: #FFFFFF !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+}
+
+/* 4. O nome dos campos (Labels) menores */
+.input-group label {
+    display: block !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #4B5563 !important;
+    margin-bottom: 8px !important;
+    margin-top: 8px;
+    text-align: left !important;
+}
+
+/* 5. Ajuste do Olhinho (Direita) */
+.toggle-password {
+    position: absolute !important;
+    right: 16px !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    z-index: 11 !important;
+}
+
+.toggle-password i, 
+.toggle-password svg {
+    position: static !important; /* O olhinho não segue a regra do ícone da esquerda */
+}
+
+/* Botão Submit */
+.btn-submit {
+    width: 100%;
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 135, 62, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .register-card {
+        padding: 25px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - AgroConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/cadastro/cadastro.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <header class="page-header">
+        <img src="../static/assets/login/logo.png" alt="Logo AgroConnect" class="logo">
+        <h1>Bem-vindo ao AgroConnect</h1>
+    </header>
+
+    <main class="register-card">
+        <form id="register-form">
+            <div class="account-type-section">
+                <label class="field-label">Tipo de conta</label>
+                <div class="toggle-container">
+                    <button type="button" class="toggle-btn active" id="type-produtor">Produtor</button>
+                    <button type="button" class="toggle-btn" id="type-estabelecimento">Estabelecimento</button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="fullname">Nome completo</label>
+                <div class="input-wrapper">
+                    <i data-lucide="user"></i>
+                    <input type="text" id="fullname" placeholder="Insira seu nome completo" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <div class="input-wrapper">
+                    <i data-lucide="mail"></i>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Telefone</label>
+                <div class="input-wrapper">
+                    <i data-lucide="phone"></i>
+                    <input type="tel" id="phone" placeholder="(11) 99999-9999" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="location">Localização</label>
+                <div class="input-wrapper">
+                    <i data-lucide="map-pin"></i>
+                    <input type="text" id="location" placeholder="Cidade, Estado" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <div class="input-wrapper">
+                    <i data-lucide="lock"></i>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                    <button type="button" class="toggle-password" id="btn-toggle-password">
+                        <i data-lucide="eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Criar conta</button>
+        </form>
+    </main>
+
+    <script src="../static/js/cadastro/lógica.js"></script>
+</body>
+</html>
