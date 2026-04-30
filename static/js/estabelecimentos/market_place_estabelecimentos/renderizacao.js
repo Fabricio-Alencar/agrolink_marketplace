@@ -7,32 +7,26 @@ import { formatarPreco, renderizarEstrelas } from './estrelas_formatacao_preco.j
 import { abrirModal } from './modal.js';
 import { API } from './api.js';
 
-// 🔹 cache para evitar múltiplas chamadas
+// 🔹 cache único compartilhado
 let cacheProdutos = null;
 
-
-// Objeto de tradução para unidades e categorias
+// ===============================
+// TRADUÇÃO
+// ===============================
 const dicionarioTraducao = {
-    // --- UNIDADES DE PESO ---
     "kg": "kg",
     "g": "g",
     "arroba": "arroba",
     "t": "tonelada",
-
-    // --- UNIDADES DE QUANTIDADE ---
     "unidade": "unidade",
     "duzia": "dúzia",
     "cento": "cento",
     "milheiro": "milheiro",
-
-    // --- EMBALAGENS E VOLUMES ---
     "caixa": "caixa",
     "saca": "saca",
     "maco": "maço",
     "bandeja": "bandeja",
     "litro": "litro",
-
-    // --- CATEGORIAS ---
     "frutas": "Frutas",
     "legumes": "Legumes",
     "hortalicas": "Hortaliças",
@@ -40,15 +34,14 @@ const dicionarioTraducao = {
     "oleaginosas": "Oleaginosas e Sementes",
     "ervas": "Ervas e Temperos",
     "outros": "Outros"
-    };
+};
 
 function formatarLabel(valor) {
-        if (!valor) return "Não informado";
-        
-        // Se o valor existir no dicionário, retorna o traduzido. 
-        // Se não existir, retorna o valor original com a primeira letra maiúscula.
-        return dicionarioTraducao[valor.toLowerCase()] || valor.charAt(0).toUpperCase() + valor.slice(1);
-    }
+    if (!valor) return "Não informado";
+
+    return dicionarioTraducao[valor.toLowerCase()] ||
+        valor.charAt(0).toUpperCase() + valor.slice(1);
+}
 
 // ===============================
 // LIMPA GRID
@@ -71,8 +64,8 @@ export function criarCard(prod) {
     const card = document.createElement('div');
     card.className = 'product-card';
 
-    const urlImagem = prod.foto 
-        ? `../../../static/${prod.foto}` 
+    const urlImagem = prod.foto
+        ? `../../../static/${prod.foto}`
         : '../../../static/uploads/produtos/foto_generica.png';
 
     card.innerHTML = `
@@ -90,8 +83,7 @@ export function criarCard(prod) {
                     <span>/${formatarLabel(prod.unidade)}</span>
                 </div>
                 <div class="stock">Total: ${prod.quantidade} ${formatarLabel(prod.unidade)}(s)</div>
-        
-                </div>
+            </div>
             
             <div class="producer-info">${prod.produtor_nome || 'Produtor Local'}</div>
             
@@ -121,12 +113,11 @@ export async function renderizarProdutos(listaExterna = null) {
     limparGrid();
 
     try {
-        // 🔹 carrega uma vez só
         if (!cacheProdutos) {
             console.log("🔄 Buscando API...");
             cacheProdutos = await API.listarProdutos();
         } else {
-            console.log("⚡ Usando cache");
+            console.log("⚡ Usando cache render");
         }
 
         const lista = listaExterna || cacheProdutos;
