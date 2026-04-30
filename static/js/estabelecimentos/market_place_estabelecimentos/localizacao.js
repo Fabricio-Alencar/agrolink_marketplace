@@ -25,8 +25,8 @@ estadoSelect.addEventListener("change", async () => {
         return;
     }
 
-    cidadeSelect.innerHTML = '<option>Carregando...</option>';
-
+    cidadeSelect.innerHTML = '<option value="">Carregando...</option>';
+    
     const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`);
     const cidades = await response.json();
 
