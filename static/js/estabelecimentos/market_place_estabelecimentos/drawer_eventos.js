@@ -17,5 +17,5 @@ DOM.searchInput.addEventListener('input', aplicarFiltros);
 DOM.filterCat.addEventListener('change', aplicarFiltros);
 DOM.filterEstado.addEventListener('change', aplicarFiltros);
 DOM.filterCidade.addEventListener('change', aplicarFiltros);
-DOM.filterDist.addEventListener('input', aplicarFiltros);
+// DOM.filterDist.addEventListener('input', aplicarFiltros);
 
