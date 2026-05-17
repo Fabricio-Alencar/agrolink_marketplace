@@ -18,7 +18,8 @@ from routes.produtos_routes import produtos_bp
 from routes.auth_routes import auth_bp
 from routes.marketplace_routes import marketplace_bp
 from routes.negociacoes_routes import negociacoes_bp
-# from routes.perfil_routes import perfil_bp
+from routes.perfil_routes import perfil_bp
+
 
 
 def create_app():
@@ -52,9 +53,9 @@ def create_app():
     app.register_blueprint(produtos_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(marketplace_bp)
-
+    app.register_blueprint(perfil_bp)
     app.register_blueprint(negociacoes_bp)
-    # app.register_blueprint(perfil_bp)
+    
 
     # =========================
     # CRIA TABELAS NO BANC

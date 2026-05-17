@@ -19,10 +19,12 @@ def cadastro():
 # =========================
 # LOGIN
 # =========================
+# =========================
+# LOGIN
+# =========================
 @auth_bp.route("/login", methods=["POST"])
 def login():
     data = request.json
-
     try:
         usuario = login_usuario(data)
 
@@ -30,26 +32,25 @@ def login():
         session["user_id"] = usuario.id
         session["tipo"] = usuario.tipo
         session["nome"] = usuario.nome
+        session["foto_perfil"] = getattr(usuario, 'foto_perfil', 'assets/user.webp')
 
         return jsonify({
             "msg": "Login realizado",
             "user_id": usuario.id,
             "tipo": usuario.tipo
         })
-
     except Exception as e:
         return jsonify({"erro": str(e)}), 401
 
 @auth_bp.route("/session", methods=["GET"])
 def get_session():
     if "user_id" not in session:
-        return jsonify({
-            "logado": False
-        })
+        return jsonify({"logado": False})
 
     return jsonify({
         "logado": True,
         "user_id": session.get("user_id"),
         "tipo": session.get("tipo"),
-        "nome": session.get("nome")
+        "nome": session.get("nome"),
+        "foto_perfil": session.get("foto_perfil", "assets/user.webp")
     })

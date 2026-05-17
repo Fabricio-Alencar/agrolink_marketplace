@@ -1,0 +1,120 @@
+/* =========================
+   ESTRUTURA DO FORMULÁRIO E TEXTOS
+========================= */
+.user-info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+/* =========================
+   SEÇÃO SOBRE MIM (ESQUERDA)
+========================= */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    color: #558b2f;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.about-text {
+    width: 100%;
+    min-height: 200px; 
+    border: 1px solid transparent;
+    background: transparent;
+    color: #666;
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.about-text:not([readonly]) {
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* =========================
+   WRAPPERS E ÍCONES (INPUTS DA DIREITA)
+========================= */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.field-icon {
+    position: absolute;
+    left: 15px;
+    color: #999;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.edit-icon {
+    position: absolute;
+    right: 15px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-size: 1.1rem;
+}
+
+.edit-icon:hover {
+    color: #111;
+}
+
+/* =========================
+   INPUTS GERAIS (ESTILO DA IMAGEM)
+========================= */
+.form-control {
+    width: 100%;
+    display: block;
+    background-color: #ffffff;
+    padding: 16px 45px; 
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #666;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.form-control:not([readonly]) {
+    color: #111;
+    border-color: #558b2f;
+}
+
+.form-control:focus {
+    border-color: #558b2f;
+    box-shadow: 0 0 0 2px rgba(85, 139, 47, 0.2);
+}
+
+.form-control[readonly] {
+    pointer-events: none;
+}
